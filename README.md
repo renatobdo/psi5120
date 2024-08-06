@@ -51,7 +51,7 @@ spec:
         	cpu: 500m
       	requests:
         	cpu: 200m
----
+
 apiVersion: v1
 kind: Service
 metadata:
