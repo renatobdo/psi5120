@@ -1,14 +1,14 @@
 # psi5120
 Tópicos em computação em nuvem - PSI5120
 
-# Trabalho ENUNCIADO
+## Trabalho ENUNCIADO
 Implante um servidor web em um cluster KUBERNETES com auto-
 escalamento horizontal automático.
 Pede- se duas implantações:
 a. Cluster Kubernetes usando minikube (REFERÊNCIA 1)
 b. Cluster AWS EKS (REFERÊNCIA 2)
 
-# REFERÊNCIAS
+## REFERÊNCIAS
 1) Horizontal Pod Autoscaler Walkthrough.
 https://kubernetes.io/docs/tasks/run-application/horizontal-
 pod-autoscale-walkthrough/
@@ -16,15 +16,15 @@ pod-autoscale-walkthrough/
 https://docs.aws.amazon.com/eks/latest/userguide/horizontal-
 pod-autoscaler.html
 
-# a. Cluster Kubernetes usando minikube (REFERÊNCIA 1)
+## a. Cluster Kubernetes usando minikube (REFERÊNCIA 1)
 Seguindo a referência 1a Cluster Kubernetes usando minikube (REFERÊNCIA 1) é necessário instalar o minikube antes
 https://minikube.sigs.k8s.io/docs/tutorials/multi_node/#hello-svc.yaml 
 https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/ 
 
-# 1 - Habilitando as métricas
+## 1 - Habilitando as métricas
 minikube addons enable metrics-server
 
-# 2 - criação do arquivo com o php-apache
+## 2 - criação do arquivo com o php-apache
 nano php-apache.yaml
 
 o arquivo php-apache.yaml tem o seguinte conteúdo:
