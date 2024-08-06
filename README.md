@@ -18,8 +18,9 @@ pod-autoscaler.html
 
 ### a. Cluster Kubernetes usando minikube (REFERÊNCIA 1)
 Seguindo a referência 1a Cluster Kubernetes usando minikube (REFERÊNCIA 1) é necessário instalar o minikube antes
-https://minikube.sigs.k8s.io/docs/tutorials/multi_node/#hello-svc.yaml 
-https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/ 
+-https://minikube.sigs.k8s.io/docs/tutorials/multi_node/#hello-svc.yaml 
+
+-https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/ 
 
 ### 1 - Habilitando as métricas
 minikube addons enable metrics-server
