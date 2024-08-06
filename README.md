@@ -1,14 +1,14 @@
 # psi5120
 Tópicos em computação em nuvem - PSI5120
 
-## Trabalho ENUNCIADO
+### Trabalho ENUNCIADO
 Implante um servidor web em um cluster KUBERNETES com auto-
 escalamento horizontal automático.
 Pede- se duas implantações:
 a. Cluster Kubernetes usando minikube (REFERÊNCIA 1)
 b. Cluster AWS EKS (REFERÊNCIA 2)
 
-## REFERÊNCIAS
+### REFERÊNCIAS
 1) Horizontal Pod Autoscaler Walkthrough.
 https://kubernetes.io/docs/tasks/run-application/horizontal-
 pod-autoscale-walkthrough/
@@ -16,15 +16,15 @@ pod-autoscale-walkthrough/
 https://docs.aws.amazon.com/eks/latest/userguide/horizontal-
 pod-autoscaler.html
 
-## a. Cluster Kubernetes usando minikube (REFERÊNCIA 1)
+### a. Cluster Kubernetes usando minikube (REFERÊNCIA 1)
 Seguindo a referência 1a Cluster Kubernetes usando minikube (REFERÊNCIA 1) é necessário instalar o minikube antes
 https://minikube.sigs.k8s.io/docs/tutorials/multi_node/#hello-svc.yaml 
 https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/ 
 
-## 1 - Habilitando as métricas
+### 1 - Habilitando as métricas
 minikube addons enable metrics-server
 
-## 2 - criação do arquivo com o php-apache
+### 2 - criação do arquivo com o php-apache
 nano php-apache.yaml
 
 o arquivo php-apache.yaml tem o seguinte conteúdo:
@@ -64,27 +64,27 @@ spec:
   selector:
 	run: php-apache
 
-# 3 - Demonstração do Horizontal Pod Autoscaler com a implementação de um exemplo de imagem:
+### 3 - Demonstração do Horizontal Pod Autoscaler com a implementação de um exemplo de imagem:
 kubectl apply -f https://k8s.io/examples/application/php-apache.yaml
 
-# 4 - criação do Horizontal Pod Autoscaler o controlador HPA aumentará e diminuirá o número de réplicas para manter uma utilização média da CPU em todos os pods de 50%
+### 4 - criação do Horizontal Pod Autoscaler o controlador HPA aumentará e diminuirá o número de réplicas para manter uma utilização média da CPU em todos os pods de 50%
 
 kubectl autoscale deployment php-apache --cpu-percent=50 --min=1 --max=10
 
-# 5 - verificação do status do Horizontal Pod Autoscaler
+### 5 - verificação do status do Horizontal Pod Autoscaler
 kubectl get hpa
 
 
-# 6 - Aumentando a carga de trabalho
+### 6 - Aumentando a carga de trabalho
 
-# 7 - Monitoramento
+### 7 - Monitoramento
 
-# 8 - Finalização das requisições e o número de réplicas volta ao normal que é 1 e baixa utilização da cpu
-
-
+### 8 - Finalização das requisições e o número de réplicas volta ao normal que é 1 e baixa utilização da cpu
 
 
-# b. Cluster AWS EKS (REFERÊNCIA 2)
+
+=====
+### b. Cluster AWS EKS (REFERÊNCIA 2)
 
 
 Seguindo a referência 1b Cluster AWS EKS (REFERÊNCIA 2).
@@ -102,31 +102,31 @@ Required IAM permissions
 https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html 
 
 
-# 1 - Para instalar o AWS CLI os seguintes comandos foram executados:
+### 1 - Para instalar o AWS CLI os seguintes comandos foram executados:
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip sudo ./aws/install
 
 
 
 
-# 2 Para atualizar a instalação
+### 2 Para atualizar a instalação
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
 sudo ./aws/install --bin-dir /usr/local/bin --install-dir /usr/local/aws-cli --update
 
 
 
-# 3 As opções do comando de exemplo a seguir gravam o arquivo baixado no diretório atual com o nome local awscliv2.zip
+### 3 As opções do comando de exemplo a seguir gravam o arquivo baixado no diretório atual com o nome local awscliv2.zip
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 
 
 
-# 4 Para a última versão do AWS CLI
+### 4 Para a última versão do AWS CLI
 curl -o awscliv2.sig https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip.sig
 
 
 
-# 5 Para criar o arquivo de chave pública utilizei o comando nano awscliv2.pub e colei o conteúdo da chave:
+### 5 Para criar o arquivo de chave pública utilizei o comando nano awscliv2.pub e colei o conteúdo da chave:
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 
 mQINBF2Cr7UBEADJZHcgusOJl7ENSyumXh85z0TRV0xJorM2B/JL0kHOyigQluUG
@@ -162,17 +162,17 @@ Import the AWS CLI public key com o comando gpg --import awscliv2.pub
 
 
 
-# 6 Verificando a assinatura
+### 6 Verificando a assinatura
 gpg --verify awscliv2.sig awscliv2.zip
 
 
 
-# 7 Descompactar o instalador
+### 7 Descompactar o instalador
 unzip awscliv2.zip
 
 
 
-# 8 Executando o programa de instalação
+### 8 Executando o programa de instalação
 sudo ./aws/install
 
 Para atualizar a instalação atual da AWS CLI
@@ -181,81 +181,72 @@ sudo ./aws/install --bin-dir /usr/local/bin --install-dir /usr/local/aws-cli --u
 
 
 
-# 9 - Confirmando a instalação
+### 9 - Confirmando a instalação
 aws --version
 
 
 
 
 https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html
-# 10 - Verificando a versão do kubectl
+### 10 - Verificando a versão do kubectl
 
 
 
-# 11 - Instância criada de acordo com aula 6 do professor Sérgio:
+### 11 - Instância criada de acordo com aula 6 do professor Sérgio:
 
 
 
-# 12 - Mudando a permissão do arquivo:
-
-
-
-
-
-# 13 - Logar na instância via ssh:
-
-
-
-# 14 - Criação do perfil (role):
+### 12 - Mudando a permissão do arquivo:
 
 
 
 
 
-# 15 - Criação do cluster eks
+### 13 - Logar na instância via ssh:
+
+
+
+### 14 - Criação do perfil (role):
+
+
+
+
+
+### 15 - Criação do cluster eks
 https://docs.aws.amazon.com/eks/latest/userguide/horizontal-pod-autoscaler.html
 
 
 
-# 16 - Adicionar grupos de nós (Workers):
+### 16 - Adicionar grupos de nós (Workers):
 
 
 
+### 17 - Geração de chave de acesso. Fiz o download da chave de acesso rootkey.csv:
 
 
 
-
-# 17 - Geração de chave de acesso. Fiz o download da chave de acesso rootkey.csv:
-
+### 18 - Instalação do AWS CLI no linux (ver atividade 6-2.pdf):
 
 
-# 18 - Instalação do AWS CLI no linux (ver atividade 6-2.pdf):
+### 19 - Configuração
 
 
 
-
-# 19 - Configuração
-
+### 20 - Instalação do kubectl
 
 
-# 20 - Instalação do kubectl
+### 21 - Instalação do eksctl
 
 
 
-
-
-# 21 - Instalação do eksctl
-
-
-
-# 22 - Verificação da conta (ver atividade 6.1.pdf)
+### 22 - Verificação da conta (ver atividade 6.1.pdf)
 
 
 
-# 23 - Atualização do cluster que criei na AWS 
+### 23 - Atualização do cluster que criei na AWS 
 
 
-# 24 - aquivo nginx-deployment.yaml
+### 24 - aquivo nginx-deployment.yaml
 
 Arquivo com a formatação correta:
 apiVersion: apps/v1
@@ -283,26 +274,22 @@ spec:
 
 
 
-# 25 - Executando o comando abaixo para expor a implantação do Nginx como um serviço LoadBalancer
+### 25 - Executando o comando abaixo para expor a implantação do Nginx como um serviço LoadBalancer
 kubectl expose deployment nginx-deployment --name=nginx-service --port=80 --target-port=80 --type=LoadBalance
 
 
 
-# 26 - Executando o comando abaixo para recuperar informações sobre o serviço Nginx com LoadBalance
+### 26 - Executando o comando abaixo para recuperar informações sobre o serviço Nginx com LoadBalance
 kubectl get service nginx-service
 
 
 
-
-
-
-
-# 27 - Informações do cluster
+### 27 - Informações do cluster
 eksctl get nodegroup --cluster eks_cluster_nusp12219799
 
 
 
-# 28 - Remoção do cluster:
+### 28 - Remoção do cluster:
 
 
 
