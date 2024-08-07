@@ -357,7 +357,53 @@ eksctl get nodegroup --cluster eks_cluster_nusp12219799
 ![27b](https://github.com/user-attachments/assets/b32955fe-3859-44fd-b58e-ff3136048035)
 
 
-### 28 - Remoção do cluster:
+### 28 - Testes
+
+https://docs.aws.amazon.com/eks/latest/userguide/horizontal-pod-autoscaler.html
+
+Primeiro precisei atualizar: 
+
+aws eks update-kubeconfig --region us-east-1 --name eks_cluster_nusp12219799
+
+Implementação de uma aplicação de servidor web Apache simples com o comando a seguir.
+
+kubectl apply -f https://k8s.io/examples/application/php-apache.yaml
+
+Crie um recurso Horizontal Pod Autoscaler para a implantação do php-apache:
+
+kubectl autoscale deployment php-apache --cpu-percent=50 --min=1 --max=10
+Analisando o escalonador automático com o comando a seguir
+kubectl get hpa
+
+![28b_](https://github.com/user-attachments/assets/cbdde1dd-124f-40ea-b9b1-592fd4c17c79)
+
+
+### 29 - Criando uma carga para o servidor web executando um contêiner
+
+kubectl run -i \
+	--tty load-generator \
+	--rm --image=busybox \
+	--restart=Never \
+	-- /bin/sh -c "while sleep 0.01; do wget -q -O- http://php-apache; done"
+
+ ![29b](https://github.com/user-attachments/assets/b7afe006-c5a5-4687-84da-7a3d0e0c5d30)
+
+### 30 - Monitorando o resultado
+
+kubectl get hpa php-apache
+
+Antes de parar o serviço o uso de cpu chega a 211% e 6 replicas. Quando para o serviço com o comando control + C o percentual de uso de cpu cai pra 0% e volta ao normal.
+
+![30b](https://github.com/user-attachments/assets/e7c7298e-1366-4de7-ad5f-06eafec27b1b)
+
+### 31 - Finalizando
+
+kubectl delete deployment.apps/php-apache service/php-apache horizontalpodautoscaler.autoscaling/php-apache
+
+![31b](https://github.com/user-attachments/assets/6f243a4b-3a78-4140-95a8-a40d86b75205)
+
+
+### 32 - Remoção do cluster:
 
 ![28b](https://github.com/user-attachments/assets/3586549e-985c-49c0-9c00-723e1dc5dec3)
 
