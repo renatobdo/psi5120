@@ -115,17 +115,17 @@ kubectl get hpa
 ### b. Cluster AWS EKS (REFERÊNCIA 2)
 
 
-Seguindo a referência 1b Cluster AWS EKS (REFERÊNCIA 2).
-https://docs.aws.amazon.com/eks/latest/userguide/horizontal-pod-autoscaler.html 
+Seguindo a referência 1b Cluster AWS EKS (REFERÊNCIA 2):
 
-https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html
-https://docs.aws.amazon.com/eks/latest/userguide/getting-started-console.html 
+- [Horizontal Pod Autoscaler](https://docs.aws.amazon.com/eks/latest/userguide/horizontal-pod-autoscaler.html)
+- [Getting Started com EKS](https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html)
+- [Getting Started no Console AWS](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-console.html)
 
 Os requisitos para iniciar o cluster AWS EKS são:
 
-AWS CLI;
-kubectl
-Required IAM permissions
+- AWS CLI;
+- kubectl
+- Required IAM permissions
 
 https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html 
 
