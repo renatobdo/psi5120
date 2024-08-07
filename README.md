@@ -372,6 +372,7 @@ kubectl apply -f https://k8s.io/examples/application/php-apache.yaml
 Crie um recurso Horizontal Pod Autoscaler para a implantação do php-apache:
 
 kubectl autoscale deployment php-apache --cpu-percent=50 --min=1 --max=10
+
 Analisando o escalonador automático com o comando a seguir
 kubectl get hpa
 
