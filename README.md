@@ -373,20 +373,21 @@ Crie um recurso Horizontal Pod Autoscaler para a implantação do php-apache:
 
 kubectl autoscale deployment php-apache --cpu-percent=50 --min=1 --max=10
 
-Analisando o escalonador automático com o comando a seguir
+Analisando o escalonador automático com o comando a seguir:
+
 kubectl get hpa
 
 ![28b_](https://github.com/user-attachments/assets/cbdde1dd-124f-40ea-b9b1-592fd4c17c79)
 
 
 ### 29 - Criando uma carga para o servidor web executando um contêiner
-
+```
 kubectl run -i \
 	--tty load-generator \
 	--rm --image=busybox \
 	--restart=Never \
 	-- /bin/sh -c "while sleep 0.01; do wget -q -O- http://php-apache; done"
-
+```
  ![29b](https://github.com/user-attachments/assets/b7afe006-c5a5-4687-84da-7a3d0e0c5d30)
 
 ### 30 - Monitorando o resultado
