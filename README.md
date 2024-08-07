@@ -12,12 +12,8 @@ a. Cluster Kubernetes usando minikube (REFERÊNCIA 1)
 b. Cluster AWS EKS (REFERÊNCIA 2)
 
 ### REFERÊNCIAS
-1) Horizontal Pod Autoscaler Walkthrough.
-https://kubernetes.io/docs/tasks/run-application/horizontal-
-pod-autoscale-walkthrough/
-2) Scale pod deployments with Horizontal Pod Autoscaler.
-https://docs.aws.amazon.com/eks/latest/userguide/horizontal-
-pod-autoscaler.html
+1. [Horizontal Pod Autoscaler Walkthrough](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/)
+2. [Scale pod deployments with Horizontal Pod Autoscaler](https://docs.aws.amazon.com/eks/latest/userguide/horizontal-pod-autoscaler.html)
 
 ### a. Cluster Kubernetes usando minikube (REFERÊNCIA 1)
 Seguindo a referência 1a Cluster Kubernetes usando minikube (REFERÊNCIA 1) é necessário instalar o minikube antes
