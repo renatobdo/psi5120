@@ -1,6 +1,6 @@
-# psi5120 - Tópicos em Computação em Nuvem - PSI5120
+# Tópicos em Computação em Nuvem - PSI5120
 
-**Renato Bueno Domingos de Oliveira - NUSP:12219799**
+Renato Bueno Domingos de Oliveira - NUSP:12219799
 
 ### Trabalho ENUNCIADO
 Implante um servidor web em um cluster KUBERNETES com auto-
