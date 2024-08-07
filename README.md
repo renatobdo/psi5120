@@ -75,7 +75,7 @@ spec:
   - port: 80
   selector:
     run: php-apache
-´´´
+```
 
 ### 3 - Demonstração do Horizontal Pod Autoscaler com a implementação de um exemplo de imagem:
 kubectl apply -f https://k8s.io/examples/application/php-apache.yaml
