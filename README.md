@@ -6,7 +6,9 @@ Renato Bueno Domingos de Oliveira - NUSP:12219799
 Implante um servidor web em um cluster KUBERNETES com auto-
 escalamento horizontal automático.
 Pede- se duas implantações:
+
 a. Cluster Kubernetes usando minikube (REFERÊNCIA 1)
+
 b. Cluster AWS EKS (REFERÊNCIA 2)
 
 ### REFERÊNCIAS
