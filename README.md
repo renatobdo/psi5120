@@ -311,28 +311,29 @@ https://docs.aws.amazon.com/eks/latest/userguide/horizontal-pod-autoscaler.html
 ### 24 - aquivo nginx-deployment.yaml
 
 Arquivo com a formatação correta:
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-deployment
   labels:
-	app: nginx
+    app: nginx
 spec:
   replicas: 1
   selector:
-	matchLabels:
-  	app: nginx
+    matchLabels:
+      app: nginx
   template:
-	metadata:
-  	labels:
-    	app: nginx
-	spec:
-  	containers:
-  	- name: nginx
-    	image: public.ecr.aws/t1f2w6h8/ekswelcome:v1
-    	ports:
-    	- containerPort: 80
-
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: public.ecr.aws/t1f2w6h8/ekswelcome:v1
+        ports:
+        - containerPort: 80
+```
 
 ![24b](https://github.com/user-attachments/assets/5b206a88-a35a-4be8-8cee-f615b1196248)
 
