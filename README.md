@@ -32,42 +32,50 @@ minikube addons enable metrics-server
 ### 2 - criação do arquivo com o php-apache
 nano php-apache.yaml
 
-o arquivo php-apache.yaml tem o seguinte conteúdo:
+# php-apache Deployment and Service Configuration
+
+Este repositório contém a configuração do Deployment e Service para o `php-apache`.
+
+## Arquivo php-apache.yaml
+
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: php-apache
 spec:
   selector:
-	matchLabels:
-  	run: php-apache
+    matchLabels:
+      run: php-apache
   template:
-	metadata:
-  	labels:
-    	run: php-apache
-	spec:
-  	containers:
-  	- name: php-apache
-    	image: registry.k8s.io/hpa-example
-    	ports:
-    	- containerPort: 80
-    	resources:
-      	limits:
-        	cpu: 500m
-      	requests:
-        	cpu: 200m
+    metadata:
+      labels:
+        run: php-apache
+    spec:
+      containers:
+      - name: php-apache
+        image: registry.k8s.io/hpa-example
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: 500m
+          requests:
+            cpu: 200m
 
+---
 apiVersion: v1
 kind: Service
 metadata:
   name: php-apache
   labels:
-	run: php-apache
+    run: php-apache
 spec:
   ports:
   - port: 80
   selector:
-	run: php-apache
+    run: php-apache
+
 
 ### 3 - Demonstração do Horizontal Pod Autoscaler com a implementação de um exemplo de imagem:
 kubectl apply -f https://k8s.io/examples/application/php-apache.yaml
