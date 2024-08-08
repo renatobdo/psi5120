@@ -276,12 +276,14 @@ https://docs.aws.amazon.com/eks/latest/userguide/horizontal-pod-autoscaler.html
 
 ### 17 - Geração de chave de acesso. Fiz o download da chave de acesso rootkey.csv:
 
-![17](https://github.com/user-attachments/assets/2a2df7e7-8e40-47b1-b7fc-59a2b226c838)
+![17](https://github.com/user-attachments/assets/e8c9576d-ca6c-4592-9864-20a44ca1f083)
+
 
 
 ### 18 - Instalação do AWS CLI no linux (ver atividade 6-2.pdf):
 
-![18](https://github.com/user-attachments/assets/774b4e4c-dc78-4d2c-b21f-ed7442da227d)
+![18](https://github.com/user-attachments/assets/cf281fa6-fd8f-4fd9-b71f-e57ee685e8e3)
+
 
 
 ### 19 - Configuração
