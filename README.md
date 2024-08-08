@@ -288,7 +288,8 @@ https://docs.aws.amazon.com/eks/latest/userguide/horizontal-pod-autoscaler.html
 
 ### 19 - Configuração
 
-![19b](https://github.com/user-attachments/assets/f04356ec-c7cd-47ff-93ca-15c5978d0ebc)
+![19b](https://github.com/user-attachments/assets/59114c89-3fe1-44fb-91da-fb2a350b5932)
+
 
 
 ### 20 - Instalação do kubectl
