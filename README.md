@@ -24,6 +24,7 @@ Seguindo a referência 1a Cluster Kubernetes usando minikube (REFERÊNCIA 1) é 
 
 ### 0 - Instalação do minikube
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+
 sudo install minikube-linux-amd64 /usr/local/bin/minikube
 
 ![Captura de tela de 2024-08-09 12-54-01](https://github.com/user-attachments/assets/1ef70bb8-6351-4180-ba95-61f2bfa63690)
