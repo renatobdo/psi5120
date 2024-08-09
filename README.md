@@ -22,6 +22,19 @@ Seguindo a referência 1a Cluster Kubernetes usando minikube (REFERÊNCIA 1) é 
 
 - [horizontal pod autoscale walkthrough](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/)
 
+### 0 - Instalação do minikube
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+![Captura de tela de 2024-08-09 12-54-01](https://github.com/user-attachments/assets/1ef70bb8-6351-4180-ba95-61f2bfa63690)
+
+minikube version
+
+![Captura de tela de 2024-08-09 12-55-34](https://github.com/user-attachments/assets/34b9ad8d-86f8-47b8-8c09-e1cb0676295e)
+
+
+
+
 ### 1 - Habilitando as métricas
 minikube addons enable metrics-server
 
