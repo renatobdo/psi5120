@@ -1,7 +1,9 @@
 # Tópicos em Computação em Nuvem - PSI5120
 
 Andras Horacio Cassimo
+
 Renato Bueno Domingos de Oliveira - NUSP:12219799
+
 Victor Soares Braz
 
 ### Trabalho Final
