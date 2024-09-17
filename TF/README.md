@@ -24,11 +24,18 @@ Aplicação fim a fim para monitoramento da dengue
 ### Disscussão
 
 Os dados das arboviroses (dengue, zika e chikungunya) são coletados da API infodengue
-em https://api.mosqlimate.org/docs/datastore/GET/infodengue/ e os parâmetros passados para a coleta dos dados são uf=SP, semana inicial e semana final mais recente. De acordo
-com o SINAN (sistema de notificação e agravos) as semanas epidemiológicas são 52 conforme
-site http://portalsinan.saude.gov.br/calendario-epidemiologico?layout=edit&id=173. Por exemplo, a semana 1 de 2024 foi de 31/12/2023 a 06/01/2024, a semana 2  de 07/01/2024 a 13/01/2024, começando em um domingo e finalizando em um sábado. 
+em: 
+- https://api.mosqlimate.org/docs/datastore/GET/infodengue/ 
+- Os parâmetros passados para a coleta dos dados são:
+  - semana inicial
+  - semana final 
+  - uf=SP
+   
+- O SINAN (sistema de notificação e agravos) define as semanas epidemiológicas que são 52 conforme site:
+  -  http://portalsinan.saude.gov.br/calendario-epidemiologico?layout=edit&id=173. 
+  -  Por exemplo, a semana 1 de 2024 foi de 31/12/2023 a 06/01/2024, a semana 2  de 07/01/2024 a 13/01/2024, começando em um domingo e finalizando em um sábado. 
 
-A URL de requisição (linha 126) pode ser visualizada no código python que foi utilizado para simulação de um dispositivo IoT:
+- A URL de requisição pode ser visualizada no código python que foi utilizado para simulação de um dispositivo IoT, assim como a publicação e envio dos dados via mqtt:
 
 ```Python
 import requests
@@ -214,10 +221,178 @@ client.loop_stop()
 client.disconnect()
 ```
 
-- A API devolve os seguintes dados nome do município, semana epidemiológica, umidade média, temperatura média, incidência e nível. A incidência informa a quantidade de casos e o nível a classificação de 1 a 4. Quando está em nível 4 a situação é de epidemia.
+- A API devolve os seguintes dados: 
+  - nome do município 
+  - semana epidemiológica 
+  - umidade média
+  - temperatura média
+  - incidência 
+  - nível. 
+- A incidência informa a quantidade de casos de dengue e o nível a classificação é em uma escala de 1 a 4. Quando está em nível 4 a situação é de epidemia.
 
 - Os dados são publicados via MQTT no tópico arbovirus/alertas. 
 
 - Uma função lambda foi criada e é acionada por uma trigger quando os dados são publicados. Esses dados são armazenados no dynamoDB
 
 - Uma outra função lambda foi criada e uma trigger é acionada quando um comando de voz é enviado e capturado pela alexa
+
+- O comando de voz foi criado seguindo o modelo de interação abaixo:
+
+```JSON
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "relatório aedes",
+            "intents": [
+                {
+                    "name": "EpidemiaIntent",
+                    "slots": [
+                        {
+                            "name": "Cidade",
+                            "type": "AMAZON.City"
+                        }
+                    ],
+                    "samples": [
+                        "qual é o nível de epidemia da dengue em {Cidade}",
+                        "Existe epidemia de dengue em {Cidade}"
+                    ]
+                },
+                {
+                    "name": "AlertaIntent",
+                    "slots": [
+                        {
+                            "name": "Cidade",
+                            "type": "AMAZON.City"
+                        }
+                    ],
+                    "samples": [
+                        "qual é o nível de alerta de dengue em {Cidade}",
+                        "Existe alerta de dengue em {Cidade}"
+                    ]
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": [
+                        "parar"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                }
+            ],
+            "types": [
+                {
+                    "name": "Cidade",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "Osasco"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Santo André"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "São Bernardo do Campo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Diadema"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Santos"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Envira"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Maragogi"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Campinas"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "São Paulo"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "AlertaIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "Cidade",
+                            "type": "AMAZON.City",
+                            "confirmationRequired": true,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "confirmation": "Confirm.Slot.124945426741.1240169787177",
+                                "elicitation": "Elicit.Slot.124945426741.1240169787177"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Confirm.Slot.124945426741.1240169787177",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Por favor, me informe o nome da cidade "
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.124945426741",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Por favor, me informe o nome da cidade"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.124945426741.1240169787177",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Por favor, me informe o nome da cidade"
+                    }
+                ]
+            }
+        ]
+    }
+}
+```
