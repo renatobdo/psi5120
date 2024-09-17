@@ -31,7 +31,7 @@ em:
   - semana final 
   - uf=SP
    
-- O SINAN (sistema de notificação e agravos) define as semanas epidemiológicas que são 52 conforme site:
+- O SINAN (sistema de informação de agravos de notificação) define as semanas epidemiológicas que são 52 conforme site:
   -  http://portalsinan.saude.gov.br/calendario-epidemiologico?layout=edit&id=173. 
   -  Por exemplo, a semana 1 de 2024 foi de 31/12/2023 a 06/01/2024, a semana 2  de 07/01/2024 a 13/01/2024, começando em um domingo e finalizando em um sábado. 
 
