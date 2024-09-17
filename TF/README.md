@@ -228,7 +228,7 @@ client.disconnect()
   - temperatura média
   - incidência 
   - nível. 
-- A incidência informa a quantidade de casos de dengue e o nível a classificação é em uma escala de 1 a 4. Quando está em nível 4 a situação é de epidemia.
+- A incidência informa a quantidade de casos de dengue e o nível a classificação. Esta é em uma escala de 1 a 4. Quando está em nível 4 a situação é de epidemia.
 
 - Os dados são publicados via MQTT no tópico arbovirus/alertas. 
 
