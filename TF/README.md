@@ -235,7 +235,10 @@ client.disconnect()
   
 - A incidência informa a quantidade de casos de dengue e o nível a classificação. Esta é em uma escala de 1 a 4. Quando está em nível 4 a situação é de epidemia.
 
-- Os dados são publicados via MQTT no tópico arbovirus/alertas. 
+- Os dados são publicados via MQTT no tópico arbovirus/alertas. O comando utilizado para publicar foi python iotDeviceSimulator.py conforme figura abaixo:
+
+![publish](https://github.com/user-attachments/assets/73e50412-877f-4aaa-8fb4-8f44ba8a38dc)
+
 
 - Uma função lambda foi criada e é acionada por uma trigger quando os dados são publicados. Esses dados são armazenados no dynamoDB
 
