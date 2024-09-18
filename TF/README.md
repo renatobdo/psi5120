@@ -407,6 +407,9 @@ client.disconnect()
 
 O código lambda em javascript foi desenvolvido para capturar as intents invocadas pelos comandos de voz. Por exemplo, existe epidemia de dengue em São Paulo? Qual o nível de alerta de dengue em São Paulo?
 
+![InteracaoAlexa](https://github.com/user-attachments/assets/73b3dbfb-12b7-4b2a-a801-884e3aaec9b6)
+
+
 ```Javascript
 const { DynamoDBClient } = require('@aws-sdk/client-dynamodb');
 const { DynamoDBDocument } = require('@aws-sdk/lib-dynamodb');
