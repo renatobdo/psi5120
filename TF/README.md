@@ -625,3 +625,36 @@ exports.handler = Alexa.SkillBuilders.custom()
         ErrorHandler)   
     .lambda();
 ```
+Código da trigger AWS IoT da função lambda Arboviroses
+
+```import { DynamoDB } from '@aws-sdk/client-dynamodb';
+import { DynamoDBDocument } from '@aws-sdk/lib-dynamodb';
+
+const dynamo = DynamoDBDocument.from(new DynamoDB());
+
+export const handler = async (event) => {
+    console.log('Received event:', JSON.stringify(event, null, 2));
+
+    const params = {
+        TableName: "arboviroses",
+        Item: {
+           
+            "municipio": event.municipio,
+             "se":event.se,
+            "umidade_media": event.umidade_media,
+            "temperatura_media": event.temperatura_media,
+            "incidencia": event.incidencia,
+            "nivel": event.nivel
+        }
+    };
+
+    try {
+        const data = await dynamo.put(params);
+        console.log("Data saved:", JSON.stringify(params, null, 2));
+        return { "message": "Item created in DB" };
+    } catch (err) {
+        console.error("Unable to save data:", JSON.stringify(err, null, 2));
+        throw new Error("Failed to save data");
+    }
+}
+```
