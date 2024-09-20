@@ -46,7 +46,7 @@ em:
   -  http://portalsinan.saude.gov.br/calendario-epidemiologico?layout=edit&id=173. 
   -  Por exemplo, a semana 1 de 2024 foi de 31/12/2023 a 06/01/2024, a semana 2  de 07/01/2024 a 13/01/2024, começando em um domingo e finalizando em um sábado. 
 
-- A URL de requisição pode ser visualizada no código python que foi utilizado para simulação de um dispositivo IoT, assim como a publicação e envio dos dados via mqtt:
+- A URL de requisição pode ser visualizada no código python que foi utilizado para simulação de um dispositivo IoT, assim como a publicação e envio dos dados via mqtt.  O código foi chamado de iotDeviceSimulator.py:
 
 ```Python
 import requests
