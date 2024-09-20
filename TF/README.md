@@ -40,7 +40,7 @@ em:
   - semana final 
   - uf=SP
 
-    Exemplo: https://api.mosqlimate.org/api/datastore/infodengue/?disease=dengue&start=2024-09-08&end=2024-09-13&per_page=300&UF=SP%27
+    Exemplo: https://api.mosqlimate.org/api/datastore/infodengue/?disease=dengue&start=2024-09-08&end=2024-09-14&per_page=300&UF=SP%27
    
 - O SINAN (sistema de informação de agravos de notificação) define as semanas epidemiológicas que são 52 conforme site:
   -  http://portalsinan.saude.gov.br/calendario-epidemiologico?layout=edit&id=173. 
