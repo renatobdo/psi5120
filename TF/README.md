@@ -35,6 +35,7 @@ Os dados das arboviroses (dengue, zika e chikungunya) são coletados da API info
 em: 
 - https://api.mosqlimate.org/docs/datastore/GET/infodengue/ 
 - Os parâmetros passados para a coleta dos dados são:
+  - disease = dengue
   - semana inicial
   - semana final 
   - uf=SP
