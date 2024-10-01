@@ -9,7 +9,7 @@ Victor Soares Braz
 
 ### Vídeo:
 
-https://youtu.be/3v5sPkxN4BE
+https://youtu.be/CjJ2TRG69VQ 
 
 ### Trabalho Final
 Implementar uma aplicação fim a fim envolvendo um dispositivo embarcado IoT, uma plataforma de IoT,
