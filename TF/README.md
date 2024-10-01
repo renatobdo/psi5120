@@ -7,8 +7,9 @@ Renato Bueno Domingos de Oliveira - NUSP:12219799
 Victor Soares Braz
 
 
-### Vídeo: 
-https://youtu.be/hiEKSS_cgCU 
+### Vídeo:
+
+https://youtu.be/3v5sPkxN4BE
 
 ### Trabalho Final
 Implementar uma aplicação fim a fim envolvendo um dispositivo embarcado IoT, uma plataforma de IoT,
