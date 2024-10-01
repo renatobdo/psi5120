@@ -30,7 +30,7 @@ Aplicação fim a fim para monitoramento da dengue
 ![DengueStatus-PSI5120](https://github.com/user-attachments/assets/e7a1c3e2-583c-456c-b5fc-f5e14ac4eafa)
 
 
-### Disscussão
+### Discussão
 
 Os dados das arboviroses (dengue, zika e chikungunya) são coletados da API infodengue
 em: 
